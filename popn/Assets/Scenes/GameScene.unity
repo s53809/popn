@@ -679,7 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0eae4610589d7419c032fa2ab6c641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteSpeed: 2
+  noteSpeed: 1
   songTime: 0
 --- !u!1 &1441309995
 GameObject:
@@ -895,7 +895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pooledObject:
-  - obj: {fileID: -1448345363357359163, guid: d168739aba4adf34f9fd8be8e64f41d0, type: 3}
+  - obj: {fileID: 647251479605240413, guid: d168739aba4adf34f9fd8be8e64f41d0, type: 3}
     num: 5
 --- !u!114 &1723452516
 MonoBehaviour:

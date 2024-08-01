@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1979335920529522855}
   - component: {fileID: 2563155193739567328}
   - component: {fileID: 647251479605240413}
-  - component: {fileID: -1448345363357359163}
   m_Layer: 0
   m_Name: PopNote
   m_TagString: Untagged
@@ -96,17 +95,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef0f9e457481dc241b26163b0aa0c960, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-1448345363357359163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4774189188900211667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76d23b0cd17f8e64bbdc041b4f567bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

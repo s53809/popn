@@ -18,7 +18,8 @@ public class PopNoteSpawner : MonoBehaviour
     [InspectorButton("Spawn Note")]
     private void SpawnImsiNote()
     {
-        _notes.Enqueue(_pooler.SpawnObject("PopNote", new Vector3(0, 0, 0)));
+        MonoPooledObject pooledObject = _pooler.SpawnObject("PopNote", new Vector3(0, 5, 0));
+        _notes.Enqueue(pooledObject);
     }
 
     [InspectorButton("Destroy Note")]
