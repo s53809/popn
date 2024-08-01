@@ -70,8 +70,8 @@ public class ObjectPool : MonoBehaviour
         }
 
         MonoPooledObject pooledObject = _dic[name].Dequeue();
-        pooledObject.gameObject.SetActive(true);
         pooledObject.transform.position = pos;
+        pooledObject.gameObject.SetActive(true);
         return pooledObject;
     }
 
