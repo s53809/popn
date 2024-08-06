@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NoteClass;
 
 public class PopNoteSpawner : MonoBehaviour
 {
@@ -9,10 +10,19 @@ public class PopNoteSpawner : MonoBehaviour
 
     private ObjectPool _pooler;
     private Queue<MonoPooledObject> _notes = new Queue<MonoPooledObject>();
+    public List<NoteData> note;
 
     private void Awake()
     {
         _pooler = GetComponent<ObjectPool>();
+        StartSpawning(note);
+    }
+
+    public void StartSpawning(List<NoteData> notes)
+    {
+        notes.Sort();
+        foreach (NoteData note in notes)
+            Debug.Log(note);
     }
 
     [InspectorButton("Spawn Note")]
