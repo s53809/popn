@@ -1,17 +1,11 @@
 using System;
 using UnityEngine;
 
-public class PopNote : MonoPooledObject
+public class PopNote : Note
 {
     private Single _startYPos = 0;
     private Single _endYPos = 0;
     private Single t = 0;
-    private void OnEnable()
-    {
-        _startYPos = transform.position.y;
-        _endYPos = GameOptionMemorizer.EndLineYPos;
-        t = 0;
-    }
     private void Update()
     {
         if (transform.position.y < GameOptionMemorizer.OutOfScreenYPos) RemovePooledObject();
@@ -28,4 +22,10 @@ public class PopNote : MonoPooledObject
         return (1 - d1) * p1 + d1 * p2;
     }
 
+    public override void SpawnNote(int num, float timing, float otherInfo)
+    {
+        _startYPos = GameOptionMemorizer.StartLineYPos + (GameOptionMemorizer.Instance.UserNoteSpeed - 1.0f);
+        _endYPos = GameOptionMemorizer.EndLineYPos;
+        t = timing - (GameOptionMemorizer.Instance.songTime + GameOptionMemorizer.Instance.noteSpeed); //위치 보정
+    }
 }

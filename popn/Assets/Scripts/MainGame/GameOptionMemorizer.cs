@@ -8,6 +8,7 @@ public class GameOptionMemorizer : MonoSingleton<GameOptionMemorizer>
     //상수
     public static readonly Single FirstLineXPosition = -3.2f;
     public static readonly Single LineSpace = 0.8f;
+    public static readonly Single StartLineYPos = 5f;
     public static readonly Single EndLineYPos = -2f;
     public static readonly Single OutOfScreenYPos = -5f;
 
@@ -15,7 +16,7 @@ public class GameOptionMemorizer : MonoSingleton<GameOptionMemorizer>
     public Single UserNoteSpeed { get; private set; }
 
     //채보같은 외부적 요인으로 인하여 변할 수도 있는 인게임 속성
-    public Single noteSpeed = 1f; //최종으로 결정된 노트 속도
+    public Single noteSpeed = 1.5f;
     public Single songTime;
 
     public void Initialization(Single userNoteSpeed)
@@ -26,6 +27,7 @@ public class GameOptionMemorizer : MonoSingleton<GameOptionMemorizer>
     protected override void Awake()
     {
         base.Awake();
+        UserNoteSpeed = 1.0f;
         
     }
 

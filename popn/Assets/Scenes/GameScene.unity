@@ -679,7 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0eae4610589d7419c032fa2ab6c641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteSpeed: 1
+  noteSpeed: 1.5
   songTime: 0
 --- !u!1 &1441309995
 GameObject:

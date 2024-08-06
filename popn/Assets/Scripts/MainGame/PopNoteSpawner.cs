@@ -19,6 +19,7 @@ public class PopNoteSpawner : MonoBehaviour
     private void SpawnImsiNote()
     {
         MonoPooledObject pooledObject = _pooler.SpawnObject("PopNote", new Vector3(0, 5, 0));
+        pooledObject.GetComponent<Note>().SpawnNote(5, GameOptionMemorizer.Instance.songTime + 1.5f, 0f);
         _notes.Enqueue(pooledObject);
     }
 
