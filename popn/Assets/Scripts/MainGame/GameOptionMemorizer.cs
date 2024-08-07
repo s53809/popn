@@ -16,7 +16,7 @@ public class GameOptionMemorizer : MonoSingleton<GameOptionMemorizer>
     public Single UserNoteSpeed { get; private set; }
 
     //채보같은 외부적 요인으로 인하여 변할 수도 있는 인게임 속성
-    public Single noteSpeed = 1.5f;
+    public Single noteSpeed = 1f;
     public Single songTime;
 
     public void Initialization(Single userNoteSpeed)
@@ -29,6 +29,13 @@ public class GameOptionMemorizer : MonoSingleton<GameOptionMemorizer>
         base.Awake();
         UserNoteSpeed = 1.0f;
         
+    }
+
+    [InspectorButton("Hell")]
+    public void ChangeUserSpeed()
+    {
+        if (UserNoteSpeed == 1.0f) UserNoteSpeed = 7.0f;
+        else UserNoteSpeed = 1.0f;
     }
 
     private void Start()

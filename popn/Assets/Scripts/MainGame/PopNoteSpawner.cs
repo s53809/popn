@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NoteClass;
+using System;
 
 public class PopNoteSpawner : MonoBehaviour
 {
@@ -11,10 +12,12 @@ public class PopNoteSpawner : MonoBehaviour
     private ObjectPool _pooler;
     private Queue<MonoPooledObject> _notes = new Queue<MonoPooledObject>();
     public List<NoteData> note;
+    private Single curSpeed = 0;
 
     private void Awake()
     {
         _pooler = GetComponent<ObjectPool>();
+        curSpeed = 0;
         StartSpawning(note);
     }
 
@@ -25,11 +28,16 @@ public class PopNoteSpawner : MonoBehaviour
             Debug.Log(note);
     }
 
+    private void Update()
+    {
+        
+    }
+
     [InspectorButton("Spawn Note")]
     private void SpawnImsiNote()
     {
         MonoPooledObject pooledObject = _pooler.SpawnObject("PopNote", new Vector3(0, 5, 0));
-        pooledObject.GetComponent<Note>().SpawnNote(5, GameOptionMemorizer.Instance.songTime + 1.5f, 0f);
+        pooledObject.GetComponent<Note>().SpawnNote(5, GameOptionMemorizer.Instance.songTime + 1f, 0f);
         _notes.Enqueue(pooledObject);
     }
 
