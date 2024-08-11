@@ -6,11 +6,8 @@ using System;
 
 public class PopNoteSpawner : MonoBehaviour
 {
-    //#todo: 노트가 스폰이 되는 함수를 짜고 그 매개변수로 도착해야하는 시간을 받는다.
-    //#todo: 임시 Object Pooling을 구현한다.
-
     private ObjectPool _pooler;
-    private Queue<MonoPooledObject> _notes = new Queue<MonoPooledObject>();
+    private List<Queue<MonoPooledObject>> _notes = new(10);
     public List<NoteData> note;
     private Single curSpeed = 0;
 
@@ -18,14 +15,19 @@ public class PopNoteSpawner : MonoBehaviour
     {
         _pooler = GetComponent<ObjectPool>();
         curSpeed = 0;
-        StartSpawning(note);
+    }
+
+    private void Start()
+    {
+        StartSpawning(note); //임시 코드
     }
 
     public void StartSpawning(List<NoteData> notes)
     {
+        curSpeed = GameOptionMemorizer.Instance.noteSpeed;
         notes.Sort();
-        foreach (NoteData note in notes)
-            Debug.Log(note);
+
+        StartCoroutine(SpawningNote(notes));
     }
 
     private void Update()
@@ -33,18 +35,23 @@ public class PopNoteSpawner : MonoBehaviour
         
     }
 
-    [InspectorButton("Spawn Note")]
-    private void SpawnImsiNote()
+    private IEnumerator SpawningNote(List<NoteData> notes)
     {
-        MonoPooledObject pooledObject = _pooler.SpawnObject("PopNote", new Vector3(0, 5, 0));
-        pooledObject.GetComponent<Note>().SpawnNote(5, GameOptionMemorizer.Instance.songTime + 1f, 0f);
-        _notes.Enqueue(pooledObject);
-    }
+        int index = 0;
+        while (index < notes.Count)
+        {
+            if (notes[index].timing - curSpeed > GameOptionMemorizer.Instance.songTime) yield return null;
+            NoteData temp = notes[index];
+            
+            if(temp.type == NoteType.SpeedChange) //변속일 경우 예외 처리
+                curSpeed = 1 / temp.otherInfo;
 
-    [InspectorButton("Destroy Note")]
-    private void DestroyImsiNote()
-    {
-        MonoPooledObject obj = _notes.Dequeue();
-        obj.RemovePooledObject();
+            MonoPooledObject pooledObject = _pooler.SpawnObject(temp.type.ToString(), new Vector3(0, 5, 0)); //오브젝트 풀러
+            pooledObject.GetComponent<Note>().SpawnNote(temp.line, temp.timing, temp.otherInfo); //노트 정보 넣어주기
+            _notes[temp.line].Enqueue(pooledObject);
+
+            index++;
+        }
+        yield return null;
     }
 }
