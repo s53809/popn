@@ -4,8 +4,8 @@ namespace NoteClass
 {
     public enum NoteType
     {
-        Normal,
-        Long,
+        PopNote,
+        LongNote,
         Bar,
         SpeedChange,
     }
