@@ -44,6 +44,9 @@ TagManager:
   - name: Line
     uniqueID: 2288421141
     locked: 0
+  - name: Bar
+    uniqueID: 1470830917
+    locked: 0
   - name: BetweenLineAndNote
     uniqueID: 2626895611
     locked: 0

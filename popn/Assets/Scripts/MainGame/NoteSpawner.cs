@@ -4,7 +4,7 @@ using UnityEngine;
 using NoteClass;
 using System;
 
-public class PopNoteSpawner : MonoBehaviour
+public class NoteSpawner : MonoBehaviour
 {
     private ObjectPool _pooler;
     private List<Queue<MonoPooledObject>> _notes = new(10);
