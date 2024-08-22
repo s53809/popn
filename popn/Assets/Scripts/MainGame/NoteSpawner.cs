@@ -40,12 +40,10 @@ public class NoteSpawner : MonoBehaviour
 
     private IEnumerator SpawningNote(List<NoteData> notes)
     {
-        Debug.Log($"{notes.Count}");
         int index = 0;
         while (index < notes.Count)
         {
             if (notes[index].timing - curSpeed > GameOptionMemorizer.Instance.songTime) { yield return null; continue; }
-            Debug.Log(index);
             NoteData temp = notes[index];
             
             if(temp.type == NoteType.SpeedChange) //函加老 版快 抗寇 贸府
