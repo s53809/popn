@@ -899,6 +899,10 @@ MonoBehaviour:
     num: 5
   - obj: {fileID: 6257277339138016941, guid: 195b6d4297b7fb8418924ba56e0864b1, type: 3}
     num: 5
+  - obj: {fileID: 2339642177612787503, guid: c70bd17cdcb3abb4c8a632f50dd57e35, type: 3}
+    num: 5
+  - obj: {fileID: 4086079158621722148, guid: 70ff7052a6bd25c4cbe18590eda0c6eb, type: 3}
+    num: 5
 --- !u!114 &1723452516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -914,28 +918,52 @@ MonoBehaviour:
   note:
   - type: 0
     line: 1
-    timing: 0.25
+    timing: 0.2
     otherInfo: 0
   - type: 0
     line: 2
-    timing: 0.5
+    timing: 0.4
     otherInfo: 0
   - type: 0
     line: 3
-    timing: 0.75
+    timing: 0.6
     otherInfo: 0
   - type: 0
     line: 4
-    timing: 1
+    timing: 0.8
     otherInfo: 0
   - type: 0
     line: 5
-    timing: 1.25
+    timing: 1
     otherInfo: 0
   - type: 1
     line: 6
-    timing: 1.5
+    timing: 1.2
     otherInfo: 5
+  - type: 0
+    line: 7
+    timing: 1.4
+    otherInfo: 0
+  - type: 0
+    line: 8
+    timing: 1.6
+    otherInfo: 0
+  - type: 2
+    line: 0
+    timing: 0.2
+    otherInfo: 0
+  - type: 2
+    line: 0
+    timing: 1
+    otherInfo: 0
+  - type: 2
+    line: 0
+    timing: 1.8
+    otherInfo: 0
+  - type: 3
+    line: 0
+    timing: 1
+    otherInfo: 2
 --- !u!1 &1864040280
 GameObject:
   m_ObjectHideFlags: 0

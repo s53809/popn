@@ -8,8 +8,9 @@ public class PopNote : Note
     private Single _endYPos = 0;
     private Single t = 0;
     private Int32 _lineNum = 1;
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         if (transform.position.y < GameOptionMemorizer.OutOfScreenYPos) RemovePooledObject();
         t += Time.deltaTime / GameOptionMemorizer.Instance.noteSpeed;
         
@@ -21,6 +22,7 @@ public class PopNote : Note
     }
     public override void SpawnNote(int num, float timing, float otherInfo)
     {
+        base.SpawnNote(num, timing, otherInfo);
         _startYPos = GameOptionMemorizer.StartLineYPos + (GameOptionMemorizer.Instance.UserNoteSpeed - 1.0f);
         _endYPos = GameOptionMemorizer.EndLineYPos;
         t = (GameOptionMemorizer.Instance.songTime + GameOptionMemorizer.Instance.noteSpeed) - timing; //위치 보정
