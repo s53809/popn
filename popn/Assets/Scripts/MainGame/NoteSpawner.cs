@@ -7,14 +7,14 @@ using System;
 public class NoteSpawner : MonoBehaviour
 {
     private ObjectPool _pooler;
-    private List<Queue<MonoPooledObject>> _notes = new();
+    //private List<Queue<MonoPooledObject>> _notes = new();
     public List<NoteData> note;
     private Single curSpeed = 0;
 
     private void Awake()
     {
-        for (int i = 0; i < 10; i++)
-            _notes.Add(new());
+        //for (int i = 0; i < 10; i++)
+            //_notes.Add(new());
 
         _pooler = GetComponent<ObjectPool>();
         curSpeed = 0;
@@ -51,8 +51,9 @@ public class NoteSpawner : MonoBehaviour
 
             MonoPooledObject pooledObject = _pooler.SpawnObject(temp.type.ToString(), new Vector3(0, 5, 0)); //오브젝트 풀러
             pooledObject.GetComponent<Note>().SpawnNote(temp.line, temp.timing, temp.otherInfo); //노트 정보 넣어주기
-            _notes[temp.line].Enqueue(pooledObject);
+            //_notes[temp.line].Enqueue(pooledObject); //note 수거해가기
             index++;
+            yield return null;
         }
         yield return null;
     }

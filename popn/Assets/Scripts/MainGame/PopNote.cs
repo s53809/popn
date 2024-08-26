@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using MinseoMathUtil;
+using UnityEditor.PackageManager;
 
 public class PopNote : Note
 {
@@ -8,11 +9,12 @@ public class PopNote : Note
     private Single _endYPos = 0;
     private Single t = 0;
     private Int32 _lineNum = 1;
+
     protected override void Update()
     {
         base.Update();
         if (transform.position.y < GameOptionMemorizer.OutOfScreenYPos) RemovePooledObject();
-        t += Time.deltaTime / GameOptionMemorizer.Instance.noteSpeed;
+        t += Time.deltaTime / GameOptionMemorizer.Instance.noteSpeed;        
         
         //#todo : 음악이 추가되면 현재 재생된 음악의 진행률에 따라 노트가 움직이도록(음악이 끊겨도 싱크가 밀리지 않도록) 바꾸기
         transform.position = new Vector3(

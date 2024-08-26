@@ -20,7 +20,7 @@ public class SpeedChange : Note
         base.Update();
         if(_timing <= GameOptionMemorizer.Instance.songTime)
         {
-            GameOptionMemorizer.Instance.noteSpeed = _speedValue;
+            GameOptionMemorizer.Instance.noteSpeed = 1 / _speedValue;
             RemovePooledObject();
         }
     }
